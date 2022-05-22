@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
+import PeopleIcon from "@mui/icons-material/People";
+import Button from "@mui/material/Button";
 import { Calendar } from "react-date-range";
 import "./Search.css";
 
@@ -15,7 +17,22 @@ function Search() {
     key: "selection",
   };
 
-  return <div className="search"></div>;
+  function handleSelect(ranges) {
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
+  }
+
+  return (
+    <div className="search">
+      <DateRangePicker ranges={[selectionRange]} onChange={handleSelect} />
+      <h2>
+        Number of Guests
+        <PeopleIcon />
+      </h2>
+      <input min={0} defaultValue={2} type="number" />
+      <Button>Search Airbnb</Button>
+    </div>
+  );
 }
 
 export default Search;
