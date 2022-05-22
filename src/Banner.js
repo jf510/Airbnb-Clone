@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Banner.css";
-import Search from './Search'
+import Search from "./Search";
 import Button from "@mui/material/Button";
 
 function Banner() {
@@ -15,7 +15,7 @@ function Banner() {
           className="search__button"
           varient="outlined"
         >
-          Search Dates
+          {showSearch ? "Hide Calendar" : "Search Dates"}
         </Button>
       </div>
       <div className="banner__info">
